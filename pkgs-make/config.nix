@@ -3,8 +3,8 @@ let
     base = {
 
         # git describe: 18.09-beta-4191-g8070a6333f3
-        nixpkgsRev = "8070a6333f3fc41ef93c2b0e07f999459615cc8d";
-        nixpkgsSha256 = "0v6nycl7lzr1kdsy151j10ywhxvlb4dg82h55hpjs1dxjamms9i3";
+        nixpkgsRev = "895874d2145862249df3f78335f4dcf62ef01626";
+        nixpkgsSha256 = "1mgagsaiky1in89vqg93brypm8n5g6ynrwi0imzlkjy5vpnq0995";
 
         nixpkgsArgs.config = {
             allowUnfree = true;
@@ -25,7 +25,7 @@ let
     };
 
     haskell = {
-        ghcVersion = "ghc843";
+        ghcVersion = "ghc865";
         overrides = pkgs: self: super: {};
         extraOverrides = pkgs: self: super: {};
         srcFilter = lib: lib.nix.sources.ignoreDevHaskell;
@@ -36,18 +36,18 @@ let
         envMoreTools = nixpkgs: [
             (nixpkgs.callPackage (import haskell/tools/nix-tags-haskell) {})
             (nixpkgs.callPackage (import haskell/tools/cabal-new-watch) {})
-            nixpkgs.haskell.packages.ghc843.apply-refact
-            nixpkgs.haskell.packages.ghc843.cabal2nix
-            nixpkgs.haskell.packages.ghc843.cabal-install
-            nixpkgs.haskell.packages.ghc843.ghcid
-            nixpkgs.haskell.packages.ghc843.hlint
-            nixpkgs.haskell.packages.ghc843.hoogle
-            nixpkgs.haskell.packages.ghc843.stylish-haskell
+            nixpkgs.haskell.packages.ghc865.apply-refact
+            nixpkgs.haskell.packages.ghc865.cabal2nix
+            nixpkgs.haskell.packages.ghc865.cabal-install
+            nixpkgs.haskell.packages.ghc865.ghcid
+            nixpkgs.haskell.packages.ghc865.hlint
+            nixpkgs.haskell.packages.ghc865.hoogle
+            nixpkgs.haskell.packages.ghc865.stylish-haskell
         ];
     };
 
     python = {
-        pyVersion = "36";
+        pyVersion = "38";
         overrides = pkgs: self: super: {};
         extraOverrides = pkgs: self: super: {};
         srcFilter = lib: lib.nix.sources.ignoreDevPython;
